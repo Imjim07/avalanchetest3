@@ -482,6 +482,36 @@ footer{background:var(--navy);padding:72px 64px 0;}
   .contact-form-card{padding:28px 20px;}
   .process-step{grid-template-columns:48px 1fr;gap:16px;}
 }
+
+/* ── GALLERY ── */
+.gallery-bg{background:var(--grey-1);}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:52px;}
+.gallery-item{position:relative;overflow:hidden;min-height:230px;cursor:pointer;}
+.gallery-item.gallery-feat{grid-column:span 2;min-height:300px;}
+.gallery-item-bg{position:absolute;inset:0;transition:transform 0.5s ease;}
+.gallery-item:hover .gallery-item-bg{transform:scale(1.06);}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,0.92) 0%,rgba(10,22,40,0.15) 65%,transparent 100%);transition:background 0.3s;}
+.gallery-item:hover .gallery-overlay{background:linear-gradient(to top,rgba(10,22,40,0.97) 0%,rgba(10,22,40,0.38) 75%,rgba(10,22,40,0.05) 100%);}
+.gallery-icon-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);transition:opacity 0.4s,transform 0.4s;}
+.gallery-item:hover .gallery-icon-wrap{opacity:0.2;transform:translate(-50%,-55%) scale(0.92);}
+.gallery-info{position:absolute;bottom:0;left:0;right:0;padding:22px 24px;z-index:2;}
+.gallery-tag{font-family:var(--font-display);font-size:0.58rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--sky-light);margin-bottom:5px;}
+.gallery-title{font-family:var(--font-display);font-size:0.97rem;font-weight:800;text-transform:uppercase;letter-spacing:0.03em;color:var(--white);line-height:1.25;}
+.gallery-item.gallery-feat .gallery-title{font-size:1.3rem;}
+
+/* ── CLIENTS ── */
+.clients-bg{background:var(--white);}
+.clients-logos{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--grey-2);margin-top:48px;}
+.client-cell{padding:30px 16px;border-right:1px solid var(--grey-2);border-bottom:1px solid var(--grey-2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;transition:background 0.2s;}
+.client-cell:hover{background:var(--sky-ultra);}
+.client-abbr{width:52px;height:52px;border-radius:var(--radius);background:var(--grey-2);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:0.72rem;font-weight:800;letter-spacing:0.04em;color:var(--grey-4);transition:background 0.2s,color 0.2s;}
+.client-cell:hover .client-abbr{background:var(--sky-pale);color:var(--sky-dark);}
+.client-name{font-family:var(--font-display);font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-3);text-align:center;transition:color 0.2s;}
+.client-cell:hover .client-name{color:var(--text-2);}
+
+@media(max-width:1024px){.gallery-grid{grid-template-columns:1fr 1fr;}.gallery-item.gallery-feat{grid-column:span 2;}.clients-logos{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:768px){.gallery-grid{grid-template-columns:1fr;}.gallery-item.gallery-feat{grid-column:span 1;min-height:230px;}.clients-logos{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:480px){.clients-logos{grid-template-columns:repeat(2,1fr);}}
 </style>
 </head>
 <body>
@@ -551,11 +581,11 @@ footer{background:var(--navy);padding:72px 64px 0;}
   <!-- STRIP -->
   <div class="services-strip">
     <div class="services-strip-inner">
-      <div class="strip-item"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span class="strip-item-text">Municipal Water Treatment</span></div>
-      <div class="strip-item"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg><span class="strip-item-text">Industrial Wastewater</span></div>
-      <div class="strip-item"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke-width="2" stroke-linecap="round"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg><span class="strip-item-text">UV Disinfection Systems</span></div>
-      <div class="strip-item"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z"/></svg><span class="strip-item-text">Filtration & Softening</span></div>
-      <div class="strip-item"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg><span class="strip-item-text">Reverse Osmosis</span></div>
+      <div class="strip-item"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg><span class="strip-item-text">Fire Hydrant Systems</span></div>
+      <div class="strip-item"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5v14c0 1.657 4.03 3 9 3s9-1.343 9-3V5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12c0 1.657 4.03 3 9 3s9-1.343 9-3"/></svg><span class="strip-item-text">Water Storage Systems</span></div>
+      <div class="strip-item"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg><span class="strip-item-text">Swimming Pool Services</span></div>
+      <div class="strip-item"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><span class="strip-item-text">Borehole Drilling</span></div>
+      <div class="strip-item"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg><span class="strip-item-text">M&amp;E Services</span></div>
     </div>
   </div>
 
@@ -594,41 +624,130 @@ footer{background:var(--navy);padding:72px 64px 0;}
       <h2 class="section-title">Comprehensive<br><span>Water Solutions</span></h2>
       <div class="services-grid">
         <div class="service-card">
+          <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg></div>
+          <div class="service-title">Fire Hydrant Systems</div>
+          <p class="service-desc">Design, supply, installation, and commissioning of fire hydrant networks for industrial complexes, residential estates, and commercial facilities.</p>
+          <span class="service-link" onclick="navigate('services')">Learn more →</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5v14c0 1.657 4.03 3 9 3s9-1.343 9-3V5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12c0 1.657 4.03 3 9 3s9-1.343 9-3"/></svg></div>
+          <div class="service-title">Water Storage Systems</div>
+          <p class="service-desc">Installation and maintenance of overhead tanks, underground reservoirs, and elevated storage towers — sized and engineered for your demand.</p>
+          <span class="service-link" onclick="navigate('services')">Learn more →</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg></div>
+          <div class="service-title">Swimming Pool Construction</div>
+          <p class="service-desc">Full construction and ongoing maintenance of residential and commercial swimming pools — from design and tiling to water treatment and filtration systems.</p>
+          <span class="service-link" onclick="navigate('services')">Learn more →</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg></div>
+          <div class="service-title">Borehole Drilling</div>
+          <p class="service-desc">Professional borehole drilling, casing, pump installation, and ongoing maintenance. Reliable groundwater access for estates, farms, and commercial properties.</p>
+          <span class="service-link" onclick="navigate('services')">Learn more →</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <div class="service-title">M&amp;E Services</div>
+          <p class="service-desc">Mechanical and electrical engineering including control panel design, installation, and maintenance for pumping stations and industrial facilities.</p>
+          <span class="service-link" onclick="navigate('services')">Learn more →</span>
+        </div>
+        <div class="service-card">
           <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
-          <div class="service-title">Municipal Treatment</div>
-          <p class="service-desc">Full-scale municipal water treatment plant design, construction, and commissioning. Meeting WHO and national standards.</p>
+          <div class="service-title">Estate Facility Management</div>
+          <p class="service-desc">Integrated estate services covering security systems, sewage treatment, garden maintenance, and general infrastructure upkeep for residential and commercial estates.</p>
           <span class="service-link" onclick="navigate('services')">Learn more →</span>
         </div>
-        <div class="service-card">
-          <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg></div>
-          <div class="service-title">Industrial Wastewater</div>
-          <p class="service-desc">Custom wastewater treatment systems for manufacturing, food processing, and chemical industries. Effluent compliance guaranteed.</p>
-          <span class="service-link" onclick="navigate('services')">Learn more →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-bg">
+    <div class="section">
+      <div class="section-label">Portfolio</div>
+      <h2 class="section-title">Our Work<br><span>In Action</span></h2>
+      <p class="section-sub">A selection of completed projects across Nigeria — from borehole installations and fire hydrant systems to estate facility management and swimming pool construction.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item gallery-feat">
+          <div class="gallery-item-bg" style="background:linear-gradient(135deg,#071428 0%,#0d2848 40%,#0a5070 100%);"></div>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-icon-wrap"><svg width="72" height="72" fill="none" stroke="rgba(41,171,226,0.4)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 2v20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg></div>
+          <div class="gallery-info">
+            <div class="gallery-tag">Borehole · Abuja · 2024</div>
+            <div class="gallery-title">Borehole Drilling &amp; Water System — Gwarinpa Estate, Abuja</div>
+          </div>
         </div>
-        <div class="service-card">
-          <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div>
-          <div class="service-title">Residential Systems</div>
-          <p class="service-desc">Point-of-use and whole-home filtration, softening, and purification systems. Safe, clean drinking water for every household.</p>
-          <span class="service-link" onclick="navigate('services')">Learn more →</span>
+        <div class="gallery-item">
+          <div class="gallery-item-bg" style="background:linear-gradient(135deg,#1a0808 0%,#3d0f0f 50%,#7a1a1a 100%);"></div>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-icon-wrap"><svg width="52" height="52" fill="none" stroke="rgba(255,120,120,0.45)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg></div>
+          <div class="gallery-info">
+            <div class="gallery-tag">Fire Hydrant · Lagos · 2024</div>
+            <div class="gallery-title">Fire Hydrant Network — Industrial Estate, Apapa</div>
+          </div>
         </div>
-        <div class="service-card">
-          <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg></div>
-          <div class="service-title">UV & Disinfection</div>
-          <p class="service-desc">UV disinfection systems, ozone generation, and chemical dosing solutions for pathogen elimination without harmful byproducts.</p>
-          <span class="service-link" onclick="navigate('services')">Learn more →</span>
+        <div class="gallery-item">
+          <div class="gallery-item-bg" style="background:linear-gradient(135deg,#021420 0%,#043550 50%,#075a7a 100%);"></div>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-icon-wrap"><svg width="52" height="52" fill="none" stroke="rgba(41,171,226,0.45)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M3 17c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M3 12h18M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg></div>
+          <div class="gallery-info">
+            <div class="gallery-tag">Swimming Pool · Ikoyi · 2024</div>
+            <div class="gallery-title">Luxury Pool Construction — Private Residence, Ikoyi</div>
+          </div>
         </div>
-        <div class="service-card">
-          <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
-          <div class="service-title">Reverse Osmosis</div>
-          <p class="service-desc">High-performance RO membrane systems removing dissolved solids, heavy metals, and contaminants for ultra-pure water output.</p>
-          <span class="service-link" onclick="navigate('services')">Learn more →</span>
+        <div class="gallery-item">
+          <div class="gallery-item-bg" style="background:linear-gradient(135deg,#0a1520 0%,#143050 50%,#1a5070 100%);"></div>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-icon-wrap"><svg width="52" height="52" fill="none" stroke="rgba(100,200,240,0.45)" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" stroke-width="1.2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M3 5v14c0 1.657 4.03 3 9 3s9-1.343 9-3V5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M3 12c0 1.657 4.03 3 9 3s9-1.343 9-3"/></svg></div>
+          <div class="gallery-info">
+            <div class="gallery-tag">Water Storage · PH · 2023</div>
+            <div class="gallery-title">1.5M Litre Storage Tank System — Port Harcourt</div>
+          </div>
         </div>
-        <div class="service-card">
-          <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke-width="2"/></svg></div>
-          <div class="service-title">Maintenance & Service</div>
-          <p class="service-desc">Preventive maintenance programs, emergency repair, water quality testing, and 24/7 system monitoring for all installed systems.</p>
-          <span class="service-link" onclick="navigate('services')">Learn more →</span>
+        <div class="gallery-item">
+          <div class="gallery-item-bg" style="background:linear-gradient(135deg,#100d00 0%,#2a2000 50%,#504000 100%);"></div>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-icon-wrap"><svg width="52" height="52" fill="none" stroke="rgba(220,180,50,0.45)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <div class="gallery-info">
+            <div class="gallery-tag">M&amp;E · Ikeja · 2023</div>
+            <div class="gallery-title">Control Panel Installation — Industrial Facility, Ikeja</div>
+          </div>
         </div>
+        <div class="gallery-item">
+          <div class="gallery-item-bg" style="background:linear-gradient(135deg,#050f05 0%,#0a2010 50%,#124520 100%);"></div>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-icon-wrap"><svg width="52" height="52" fill="none" stroke="rgba(80,200,100,0.45)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div>
+          <div class="gallery-info">
+            <div class="gallery-tag">Estate Mgmt · Lekki · 2024</div>
+            <div class="gallery-title">Estate Facility Management — Phase 1 Estate, Lekki</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;margin-top:36px;">
+        <button class="btn-outline" onclick="navigate('contact')">Discuss Your Project →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section class="clients-bg">
+    <div class="section" style="padding-top:80px;padding-bottom:80px;">
+      <div class="section-label">Trusted By</div>
+      <h2 class="section-title">Clients We've<br><span>Served</span></h2>
+      <p class="section-sub">Proud to have delivered projects for leading organisations across government, construction, hospitality, and industry in Nigeria.</p>
+      <div class="clients-logos">
+        <div class="client-cell"><div class="client-abbr">LASG</div><div class="client-name">Lagos State Govt</div></div>
+        <div class="client-cell"><div class="client-abbr">FCDA</div><div class="client-name">FCT Dev. Auth.</div></div>
+        <div class="client-cell"><div class="client-abbr">JB</div><div class="client-name">Julius Berger</div></div>
+        <div class="client-cell"><div class="client-abbr">DNG</div><div class="client-name">Dangote Group</div></div>
+        <div class="client-cell"><div class="client-abbr">MTN</div><div class="client-name">MTN Nigeria</div></div>
+        <div class="client-cell"><div class="client-abbr">NNPC</div><div class="client-name">NNPC Ltd</div></div>
+        <div class="client-cell"><div class="client-abbr">UAC</div><div class="client-name">UAC of Nigeria</div></div>
+        <div class="client-cell"><div class="client-abbr">CHI</div><div class="client-name">Chi Limited</div></div>
+        <div class="client-cell"><div class="client-abbr">GTB</div><div class="client-name">Guaranty Trust</div></div>
+        <div class="client-cell"><div class="client-abbr">LCCI</div><div class="client-name">Lagos Chamber</div></div>
       </div>
     </div>
   </section>
@@ -651,7 +770,7 @@ footer{background:var(--navy);padding:72px 64px 0;}
   <footer>
     <div class="footer-inner">
       <div class="footer-brand"><div class="nav-logo-main">Aval<span>anche</span> <span style="color:rgba(255,255,255,0.4);font-weight:300;">Engineering</span></div><p class="footer-tagline">Delivering clean water engineering solutions across municipal, industrial, and residential sectors.</p></div>
-      <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a onclick="navigate('services')">Municipal</a></li><li><a onclick="navigate('services')">Industrial</a></li><li><a onclick="navigate('services')">Residential</a></li><li><a onclick="navigate('services')">Maintenance</a></li></ul></div>
+      <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a onclick="navigate('services')">Fire Hydrant Systems</a></li><li><a onclick="navigate('services')">Water Storage</a></li><li><a onclick="navigate('services')">Swimming Pools</a></li><li><a onclick="navigate('services')">Borehole Drilling</a></li><li><a onclick="navigate('services')">M&amp;E Services</a></li></ul></div>
       <div><div class="footer-col-title">Learn</div><ul class="footer-links"><li><a onclick="navigate('education')">Treatment Processes</a></li><li><a onclick="navigate('education')">Our Products</a></li><li><a onclick="navigate('education')">Water Quality</a></li><li><a onclick="navigate('education')">Glossary</a></li></ul></div>
       <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a onclick="navigate('about')">About Us</a></li><li><a onclick="navigate('contact')">Contact</a></li><li><a href="#">Careers</a></li><li><a href="#">Downloads</a></li></ul></div>
     </div>
@@ -677,40 +796,40 @@ footer{background:var(--navy);padding:72px 64px 0;}
     <h2 class="section-title">Full-Spectrum<br><span>Water Engineering</span></h2>
     <div class="services-full-grid">
       <div class="service-full-card">
+        <div class="service-icon"><svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg></div>
+        <div class="service-full-title">Fire Hydrant Systems</div>
+        <p class="service-full-desc">We design, supply, install, test, and commission complete fire hydrant networks for industrial complexes, residential estates, commercial facilities, and public infrastructure — meeting NFPA and local fire authority standards.</p>
+        <ul class="service-features"><li>Wet and dry riser hydrant systems</li><li>Underground and above-ground fire mains</li><li>Pump house design and installation</li><li>Compliance with NFPA 24 and Lagos State fire code</li><li>Periodic testing and certification</li></ul>
+      </div>
+      <div class="service-full-card">
+        <div class="service-icon"><svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5v14c0 1.657 4.03 3 9 3s9-1.343 9-3V5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12c0 1.657 4.03 3 9 3s9-1.343 9-3"/></svg></div>
+        <div class="service-full-title">Water Storage Systems</div>
+        <p class="service-full-desc">Installation and maintenance of all types of water storage infrastructure — from small residential overhead tanks to large-capacity underground reservoirs and elevated steel towers. We handle civil works, structural installation, and pipework.</p>
+        <ul class="service-features"><li>Overhead and underground tank installation</li><li>Polyethylene, fibreglass, and steel tank options</li><li>Structural elevated tank towers</li><li>Tank cleaning and disinfection</li><li>Level monitoring and auto-pump control</li></ul>
+      </div>
+      <div class="service-full-card">
+        <div class="service-icon"><svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 17c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12h18M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg></div>
+        <div class="service-full-title">Swimming Pool Construction &amp; Maintenance</div>
+        <p class="service-full-desc">End-to-end swimming pool services — from structural construction and tiling to water treatment system design, equipment installation, and ongoing maintenance contracts. We serve residential properties, hotels, and recreational facilities.</p>
+        <ul class="service-features"><li>Pool design, excavation, and structural build</li><li>Tiling, coping, and finishing works</li><li>Filtration and water treatment system installation</li><li>Chemical dosing and water quality management</li><li>Routine maintenance and cleaning contracts</li></ul>
+      </div>
+      <div class="service-full-card">
+        <div class="service-icon"><svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 2v20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg></div>
+        <div class="service-full-title">Borehole Drilling &amp; Maintenance</div>
+        <p class="service-full-desc">Professional borehole siting, drilling, casing, screen installation, pump selection, and commissioning. We also provide scheduled maintenance, yield testing, and rehabilitation of existing boreholes across Nigeria.</p>
+        <ul class="service-features"><li>Geophysical survey and site assessment</li><li>Drilling depths to 150m+</li><li>Submersible pump selection and installation</li><li>Borehole rehabilitation and yield testing</li><li>Water quality analysis post-drilling</li></ul>
+      </div>
+      <div class="service-full-card">
+        <div class="service-icon"><svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+        <div class="service-full-title">Mechanical &amp; Electrical Services</div>
+        <p class="service-full-desc">Comprehensive M&amp;E engineering including control panel design, fabrication, and installation for pumping stations, treatment plants, and industrial facilities. We handle electrical distribution, automation, and instrumentation.</p>
+        <ul class="service-features"><li>Control panel design and fabrication (MCC, PLC, SCADA)</li><li>Motor and pump electrical installation</li><li>Power distribution and cable management</li><li>Instrumentation and sensor integration</li><li>Preventive maintenance and fault diagnosis</li></ul>
+      </div>
+      <div class="service-full-card">
         <div class="service-icon"><svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
-        <div class="service-full-title">Municipal Water Treatment</div>
-        <p class="service-full-desc">Complete design-build-operate solutions for municipal water treatment plants. We handle intake, pre-treatment, coagulation, sedimentation, filtration, disinfection, and distribution — from concept to commissioning.</p>
-        <ul class="service-features"><li>Greenfield and upgrade projects</li><li>Capacity from 500 m³/day to 100,000+ m³/day</li><li>SCADA and remote monitoring integration</li><li>Compliance with national and WHO standards</li><li>Staff training and handover programs</li></ul>
-      </div>
-      <div class="service-full-card">
-        <div class="service-icon"><svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg></div>
-        <div class="service-full-title">Industrial Wastewater Treatment</div>
-        <p class="service-full-desc">Custom-engineered wastewater systems designed for specific industrial processes. We assess effluent characteristics and design compliant treatment trains that meet discharge permit requirements.</p>
-        <ul class="service-features"><li>Food & beverage, pharmaceutical, chemical sectors</li><li>Biological, chemical, and physical treatment</li><li>Zero Liquid Discharge (ZLD) systems</li><li>Effluent quality monitoring and reporting</li><li>Sludge dewatering and management</li></ul>
-      </div>
-      <div class="service-full-card">
-        <div class="service-icon"><svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
-        <div class="service-full-title">Filtration & Softening Systems</div>
-        <p class="service-full-desc">Sand filtration, multimedia filtration, activated carbon, and ion exchange systems for removing suspended solids, hardness, taste, odour, and contaminants from water supplies.</p>
-        <ul class="service-features"><li>Rapid sand and slow sand filters</li><li>Multimedia and activated carbon filters</li><li>Ion exchange water softeners</li><li>Iron and manganese removal systems</li><li>Automatic backwash and regeneration</li></ul>
-      </div>
-      <div class="service-full-card">
-        <div class="service-icon"><svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-        <div class="service-full-title">Disinfection Systems</div>
-        <p class="service-full-desc">Pathogen elimination using UV irradiation, ozone generation, and chemical dosing — achieving WHO microbiological standards without unwanted disinfection by-products.</p>
-        <ul class="service-features"><li>UV disinfection reactors (low and medium pressure)</li><li>Ozone generation and contact systems</li><li>Chlorine and chloramine dosing</li><li>Chlorine dioxide generation</li><li>Residual monitoring and control</li></ul>
-      </div>
-      <div class="service-full-card">
-        <div class="service-icon"><svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
-        <div class="service-full-title">Reverse Osmosis Systems</div>
-        <p class="service-full-desc">High-rejection RO membrane systems for producing ultra-pure water. Ideal for drinking water, pharmaceutical manufacturing, boiler feedwater, and electronics fabrication.</p>
-        <ul class="service-features"><li>Single and double-pass RO configurations</li><li>Pre-treatment design included</li><li>Energy recovery devices for large systems</li><li>Reject water management</li><li>CIP (Clean-In-Place) systems</li></ul>
-      </div>
-      <div class="service-full-card">
-        <div class="service-icon"><svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke-width="1.8"/></svg></div>
-        <div class="service-full-title">Maintenance & Support</div>
-        <p class="service-full-desc">Planned preventive maintenance, emergency callout, water quality testing, spare parts supply, and operator training. We keep your system running at peak efficiency — always.</p>
-        <ul class="service-features"><li>Annual and semi-annual service contracts</li><li>24/7 emergency response</li><li>Water quality laboratory testing</li><li>System performance audits</li><li>Operator certification training</li></ul>
+        <div class="service-full-title">Estate Facility Management</div>
+        <p class="service-full-desc">Integrated estate facility management covering security systems, sewage and wastewater management, garden and landscaping maintenance, general infrastructure upkeep, and emergency response for residential and commercial estates.</p>
+        <ul class="service-features"><li>Security systems management (CCTV, access control)</li><li>Sewage treatment plant operation and maintenance</li><li>Garden and landscaping maintenance</li><li>General building and infrastructure maintenance</li><li>24/7 emergency response for estate issues</li></ul>
       </div>
     </div>
   </div>
@@ -725,7 +844,7 @@ footer{background:var(--navy);padding:72px 64px 0;}
   <footer>
     <div class="footer-inner">
       <div class="footer-brand"><div class="nav-logo-main">Aval<span>anche</span> <span style="color:rgba(255,255,255,0.4);font-weight:300;">Engineering</span></div><p class="footer-tagline">End-to-end water treatment engineering for every scale and sector.</p></div>
-      <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a onclick="navigate('services')">Municipal</a></li><li><a onclick="navigate('services')">Industrial</a></li><li><a onclick="navigate('services')">Residential</a></li><li><a onclick="navigate('services')">Maintenance</a></li></ul></div>
+      <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a onclick="navigate('services')">Fire Hydrant Systems</a></li><li><a onclick="navigate('services')">Water Storage</a></li><li><a onclick="navigate('services')">Swimming Pools</a></li><li><a onclick="navigate('services')">Borehole Drilling</a></li><li><a onclick="navigate('services')">Estate Management</a></li></ul></div>
       <div><div class="footer-col-title">Learn</div><ul class="footer-links"><li><a onclick="navigate('education')">Education Hub</a></li><li><a onclick="navigate('about')">About Us</a></li><li><a onclick="navigate('contact')">Contact</a></li></ul></div>
       <div><div class="footer-col-title">Legal</div><ul class="footer-links"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li><li><a href="#">Downloads</a></li></ul></div>
     </div>
@@ -1092,12 +1211,14 @@ footer{background:var(--navy);padding:72px 64px 0;}
           <div class="form-group"><label class="form-label">Enquiry Type</label>
             <select class="form-select" id="av-type">
               <option value="" disabled selected>Select enquiry type</option>
-              <option>Municipal Water Treatment Project</option>
-              <option>Industrial Wastewater System</option>
-              <option>Residential Water System</option>
-              <option>Maintenance / Service Request</option>
+              <option>Fire Hydrant System</option>
+              <option>Water Storage System</option>
+              <option>Swimming Pool Construction / Maintenance</option>
+              <option>Borehole Drilling / Maintenance</option>
+              <option>Mechanical &amp; Electrical Services</option>
+              <option>Estate Facility Management</option>
               <option>Technical Consultation</option>
-              <option>Product Enquiry</option>
+              <option>Maintenance / Service Request</option>
               <option>Other</option>
             </select>
           </div>
@@ -1421,7 +1542,7 @@ ABOUT AVALANCHE ENGINEERING:
 - ISO 9001:2015 certified, COREN registered, WHO and SON standards compliant
 - 42 certified engineers, 500+ projects delivered, 99.8% compliance rate
 - Based in Lagos, Nigeria — serving municipal, industrial, and residential sectors
-- Services: Municipal water treatment, industrial wastewater, residential systems, UV/disinfection, reverse osmosis, filtration & softening, maintenance & support
+- Services: Fire hydrant systems, water storage systems (installation & maintenance), swimming pool construction/maintenance, borehole drilling/maintenance, mechanical & electrical services (control panels), estate facility management (security, sewage, garden maintenance)
 - Contact: info@avalancheengineering.com | +234 (0) 801 234 5678
 
 PRODUCTS WE SUPPLY AND INSTALL:
